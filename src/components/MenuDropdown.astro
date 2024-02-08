@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<dropdown-menu class="flex h-[60vh] w-full flex-col items-end bg-teal-200 px-2">
+	<button class="menu-button"><Icon name="global/more" class="h-12 w-12 p-2" /></button>
+	<ol
+		class="menu duration-400 flex w-max -translate-y-[150%] flex-col rounded-md bg-neutral-50 shadow transition-all">
+		<li class="menu-item">Edit your list</li>
+		<li class="menu-item">Account settings</li>
+		<li class="menu-item">View your profile</li>
+	</ol>
+</dropdown-menu>
+
+<script>
+	class DropdownMenu extends HTMLElement {
+		constructor() {
+			super()
+
+			const button = this.querySelector('.menu-button')
+
+			const menu = this.querySelector('.menu')
+
+			const handleButtonClick = () => {
+				if (menu.classList.contains('-translate-y-[150%]')) {
+					menu.classList.remove('-translate-y-[150%]')
+					menu.classList.add('translate-y-0')
+				} else {
+					menu.classList.add('-translate-y-[150%]')
+					menu.classList.remove('translate-y-0')
+				}
+			}
+			button.addEventListener('click', handleButtonClick)
+		}
+	}
+
+	customElements.define('dropdown-menu', DropdownMenu)
+</script>
+
+<style lang="scss">
+	.menu-button {
+		z-index: 20;
+	}
+
+	.menu-item {
+		@apply z-10 rounded-md px-8 py-6 transition-all hover:bg-indigo-300;
+	}
+	.menu {
+		z-index: 0;
+	}
+</style>

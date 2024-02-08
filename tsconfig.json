@@ -1,0 +1,57 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "types": [
+      "astro",
+      "vue"
+    ],
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "es2015",
+      "ES2022",
+      "esnext"
+    ],
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "plugins": [],
+    "paths": {
+      "@/public": [
+        "public/*"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@icons/*": [
+        "src/icons/*"
+      ],
+      "@logo/*": [
+        "src/logo/*"
+      ],
+    },
+  },
+  // "include": [
+  //   "@icons/"
+  // ],
+}
